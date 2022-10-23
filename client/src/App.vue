@@ -23,7 +23,7 @@ export default {
 <style lang="scss">
 html, body, #app {
   height: 100%;
-  margin: 0;
+  margin: 1vh auto;
   max-width: 1920px ;
   max-width: 1080px;
 }

@@ -20,7 +20,7 @@
       </span>
       <v-toolbar-title>
         <router-link to="/" tag="span" class="nav-item mt-2">
-          <img src="../assets/logo-vintageswap.svg" alt="logo"/>
+          <img class='logo' src="../assets/logo-vintageswap.svg" alt="logo"/>
         </router-link>
       </v-toolbar-title>
       <!-- <v-spacer></v-spacer> -->
@@ -58,5 +58,9 @@ export default {
 <style scoped>
 .nav-item {
   cursor: pointer;
+}
+.logo {
+  padding: 0.5rem;
+  margin-top: 1vh;
 }
 </style>

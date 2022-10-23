@@ -45,6 +45,8 @@
 </template>
 
 <script >
+// import {useAuthStore } from "@/stores"
+
 export default {
   name: 'Login',
   data: () => ({ 
@@ -54,12 +56,19 @@ export default {
     loading: false
   }),
   methods: {
-    onSubmit () {
+    onSubmit () { 
+      // const authStore = useAuthStore()
+
+        
       console.log()
+      
       if (!this.form) return
+
       console.log(this.email)
       console.log(this.password)
+
       this.loading = true
+
       setTimeout(() => (this.loading = false), 2000)
     },
     required (v) {
