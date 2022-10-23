@@ -31,13 +31,13 @@ export class Clothes {
   @Column()
   description: string;
 
-  @ManyToOne(() => Brand, (brand) => brand.clothes)
+  @ManyToOne(() => Brand, (brand) => brand.clothes, { eager: true })
   brand: Brand;
 
-  @ManyToOne(() => Usage, (usage) => usage.clothes)
+  @ManyToOne(() => Usage, (usage) => usage.clothes, { eager: true })
   usage: Usage;
 
-  @ManyToOne(() => Type, (type) => type.clothes)
+  @ManyToOne(() => Type, (type) => type.clothes, { eager: true })
   type: Type;
 
   @ManyToMany(() => File)
@@ -48,6 +48,5 @@ export class Clothes {
   user: User;
 
   @ManyToMany(() => Exchange)
-  @JoinTable()
   exchanges: Exchange[];
 }

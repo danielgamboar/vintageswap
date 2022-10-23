@@ -4,11 +4,11 @@ import { AppDataSource } from "../../data-source";
 import { User } from "../../entity/User";
 import { issueNewToken } from "../../helpers/auth/jwt";
 
-export async function loginUser(request: Request, response: Response) {
-  const body: Partial<User> = request.body;
+export async function loginUser(req: Request, res: Response) {
+  const body: Partial<User> = req.body;
 
   if (body.email === undefined || body.password === undefined) {
-    return response.status(400).send({
+    return res.status(400).send({
       message:
         "Correo o contraseña incorrecta. Introduzca sus credenciales nuevamente.",
     });
@@ -19,19 +19,17 @@ export async function loginUser(request: Request, response: Response) {
   });
 
   if (user == null) {
-    return response.status(404).send("Usuario no encontrado");
+    return res.status(404).send("Usuario no encontrado");
   }
   const validPassword = await compare(body.password, user.password);
 
   if (!validPassword) {
-    return response.status(400).send("Constraseña incorrecta");
+    return res.status(400).send("Constraseña incorrecta");
   }
 
   const token = await issueNewToken(user);
 
-  return response
-    .status(200)
-    .send({ message: "Usuario loggeado con exito", token });
+  return res.status(200).send({ message: "Usuario loggeado con exito", token });
 }
 
 export async function registerUser(request: Request, response: Response) {

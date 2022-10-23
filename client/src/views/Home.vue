@@ -22,13 +22,24 @@
             </v-img>
 
             <v-card-actions>
-              <v-spacer></v-spacer>
+              <v-col>
+                <v-chip
+                v-for="chip, index in chips"
+                :key="index" 
+                label
+                class="'ma-2'
+                ">
+                  {{chip}}
+                </v-chip>
+              </v-col>
 
-              <v-btn size="small" color="surface-variant" variant="text" icon="mdi-heart"></v-btn>
+              <v-col>
+                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-heart"></v-btn>
 
               <v-btn size="small" color="surface-variant" variant="text" icon="mdi-close"></v-btn>
 
               <v-btn size="small" color="surface-variant" variant="text" icon="mdi-share-variant"></v-btn>
+              </v-col>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -44,6 +55,9 @@
       cards: [
         { title: 'Abrigo cachemira', src: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=80', flex: 12 },
       ],
+      chips: [
+        'Talla: M', 'Pecho: 96cm', 'Cadera: 120cm', 'Estado: nuevo', 'Marca: Zara', '150 SP'
+      ]
     }),
   }
 </script>

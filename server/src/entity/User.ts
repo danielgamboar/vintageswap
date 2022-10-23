@@ -42,27 +42,26 @@ export class User {
   clothes: Clothes[];
 
   @ManyToMany(() => Exchange)
-  @JoinTable()
   exchanges: Exchange[];
 
-  @Column()
+  @Column({ nullable: true })
   adress: string;
 
-  @Column()
+  @Column({ nullable: true })
   height: string;
 
-  @Column()
+  @Column({ nullable: true })
   chest: string;
 
-  @Column()
+  @Column({ nullable: true })
   leg: string;
 
-  @Column()
+  @Column({ nullable: true })
   hip: string;
 
-  @Column()
+  @Column({ nullable: true })
   size: string;
 
-  @Column()
+  @Column({ nullable: true })
   quote: string;
 }
